@@ -133,6 +133,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   background: rgba(13, 27, 30, .4);
   padding: 1.5rem;
   z-index: -1;

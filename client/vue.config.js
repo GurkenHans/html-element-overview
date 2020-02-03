@@ -1,6 +1,6 @@
 module.exports = {
   pwa: {
-    name: 'Nico\'s page',
+    name: 'HTML Element Overview',
     themeColor: '#0D1B1E',
     msTileColor: '#0D1B1E',
     workboxPluginMode: 'InjectManifest',

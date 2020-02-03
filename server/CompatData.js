@@ -35,7 +35,7 @@ class CompatData {
     }
     
     async getData() {
-        if(!this.shouldRefreshJsonFile()) {
+        if(this.hasAccessToJsonFile()) {
             const jsonFile = this.getJsonFilePath(),
                 jsonFileContents = fs.readFileSync(jsonFile);
 
@@ -75,21 +75,6 @@ class CompatData {
 
     getJsonFilePath() {
         return path.join(__dirname, compatDataOptions.jsonFile);
-    }
-
-    shouldRefreshJsonFile() {
-        if(this.hasAccessToJsonFile()) {
-            const jsonFile = this.getJsonFilePath(),
-                jsonFileContents = fs.readFileSync(jsonFile),
-                data = JSON.parse(jsonFileContents);
-
-            return (
-                typeof data.updated_at === 'undefined' ||
-                Date.now() - data.updated_at > compatDataOptions.refreshRate
-            );
-        }
-
-        return true;
     }
 
     hasAccessToJsonFile() {

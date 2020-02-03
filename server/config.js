@@ -6,6 +6,5 @@ module.exports = {
     compatDataOptions: {
         elementDocumentationUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element',
         jsonFile: 'compatData.json',
-        refreshRate: 7 * 86400000,
     },
 };
