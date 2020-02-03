@@ -1,0 +1,23 @@
+{
+  "name": "HTML Element Overview",
+  "short_name": "HTML Element Overview",
+  "description": "A short overview of all HTML elements.",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "./img/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "https://elements.borger.io/",
+  "scope": "https://elements.borger.io/",
+  "display": "standalone",
+  "background_color": "#eee",
+  "theme_color": "#eee"
+}

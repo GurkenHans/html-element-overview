@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="46.002" height="61.002" viewBox="0 0 12.171 16.14">
+  <path d="M.133 16.007V5.424L5.424.132h6.615v15.875z" fill="#ccc" stroke="#000" stroke-width=".265" stroke-linecap="round" stroke-linejoin="round"/>
+  <g aria-label="&lt;/&gt;" style="line-height:1.25" font-weight="400" font-size="5.369" font-family="sans-serif" letter-spacing="0" word-spacing="0" stroke-width=".134">
+    <path d="M4.26 9.607L1.446 8.163v-.35l2.816-1.445v.507L2.04 7.988 4.26 9.1zM7.013 5.442l-1.75 5.238h-.422l1.743-5.238zM10.658 8.163L7.843 9.607V9.1l2.22-1.112-2.22-1.113v-.507l2.815 1.445z"/>
+  </g>
+  <path d="M.133 5.424h5.291V.132" fill="none" stroke="#000" stroke-width=".265"/>
+  <path d="M2.867 2.894C4.186 1.576 5.267.497 5.271.497c.003 0 .006 1.079.006 2.397v2.398H.469z" fill="#bbb"/>
+</svg>

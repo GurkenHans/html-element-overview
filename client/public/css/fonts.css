@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Manjari';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Manjari Regular'), local('Manjari-Regular'), url(../fonts/Manjari-Bold.ttf) format('woff2');
+}
+
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Nunito Regular'), local('Nunito-Regular'), url(../fonts/Nunito-Regular.ttf) format('woff2');
+}
