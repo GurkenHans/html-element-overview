@@ -43,9 +43,9 @@
 <script>
 import LoadingSpinner from '@/components/LoadingSpinner.vue';
 import ElementOverviewElementSupport from '@/components/ElementOverviewElementSupport.vue';
-import APIService from '@/APIService.js';
+import Api from '@/services/Api.js';
 
-const API = new APIService();
+const api = new Api();
 
 export default {
   name: 'element-overview-element-modal',
@@ -92,7 +92,7 @@ export default {
       document.body.style.overflow = 'hidden';
       this.visible = true;
 
-      API.getElement(element.tag)
+      api.getElement(element.tag)
         .then(elementData => {
           this.elementData = elementData;
           this.loaded = true;

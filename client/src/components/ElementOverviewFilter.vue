@@ -40,7 +40,7 @@ export default {
       this.$emit('pt-search', val.toLowerCase());
     },
     sort(val) {
-      this.$emit('pt-sort', val);
+      this.$emit('pt-sort', val.by, val.direction);
     }
   }
 }

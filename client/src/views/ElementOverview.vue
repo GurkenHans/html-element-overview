@@ -50,9 +50,13 @@ import ElementOverviewFilter from '@/components/ElementOverviewFilter.vue';
 import ElementOverviewElement from '@/components/ElementOverviewElement.vue';
 import ElementOverviewElementModal from '@/components/ElementOverviewElementModal.vue';
 import ElementOverviewElementGroup from '@/components/ElementOverviewElementGroup.vue';
-import APIService from '@/APIService.js';
+import Api from '@/services/Api.js';
+import ElementSorter from '@/services/ElementSorter.js';
+import ElementGrouper from '@/services/ElementGrouper.js';
 
-const API = new APIService();
+const api = new Api();
+const elementSorter = new ElementSorter();
+const elementGrouper = new ElementGrouper();
 const colors = [
   '#ef5350',
   '#ec407a',
@@ -105,15 +109,10 @@ export default {
     onSearch(search) {
       this.searchTag = search;
     },
-    onSort(sort) {
-      switch(sort.by) {
-        case 'category':
-          this.sortByCategory(sort.direction);
-          break;
-        case 'name':
-          this.sortByName(sort.direction);
-          break;
-      }
+    onSort(sortBy, sortDirection) {
+      this.elements = elementSorter.by(sortBy).dir(sortDirection);
+
+      this.elementGroups = elementGrouper.from(this.elements, this.categories).by(sortBy);
     },
     getColorForElement(element) {
       const color = this.colors.find(color => color.category === element.category);
@@ -131,76 +130,9 @@ export default {
     openElementModal(element) {
       this.activeElement = element;
     },
-    sortByCategory(direction = 'asc') {
-      let sortFunc = (elA, elB) => {
-        return this.categories.findIndex(category => category === elA.category) - this.categories.findIndex(category => category === elB.category);
-      };
-
-      if(direction === 'desc') {
-        sortFunc = (elA, elB) => {
-          return this.categories.findIndex(category => category === elB.category) - this.categories.findIndex(category => category === elA.category);
-        };
-      }
-
-      this.elements = this.elements.sort(sortFunc);
-      this.calculateElementGroups('category');
-    },
-    sortByName(direction = 'asc') {
-      let sortFunc = (elA, elB) => {
-        if(elA.tag < elB.tag) return -1;
-        if(elB.tag < elA.tag) return 1;
-
-        return 0;
-      };
-
-      if(direction === 'desc') {
-        sortFunc = (elA, elB) => {
-          if(elA.tag < elB.tag) return 1;
-          if(elB.tag < elA.tag) return -1;
-
-          return 0;
-        }
-      }
-
-      this.elements = this.elements.sort(sortFunc);
-      this.calculateElementGroups('name');
-    },
-    calculateElementGroups(sortBy) {
-      let elementGroups;
-
-      switch(sortBy) {
-        case 'category':
-          elementGroups = this.categories.map(category => {
-            return {
-              order: this.elements.findIndex(element => element.category === category),
-              title: category,
-            };
-          });
-          break;
-        case 'name':
-          elementGroups = 'abcdefghijklmnopqrstuvwxyz'.split('').map(char => {
-            return {
-              order: this.elements.findIndex(element => element.tag.startsWith(char)),
-              title: char.toUpperCase(),
-            };
-          });
-          break;
-      }
-
-      this.setElementGroups(elementGroups);
-    },
-    setElementGroups(elementGroups) {
-      this.elementGroups = elementGroups
-        .filter(group => group.order !== -1)
-        .map(group => {
-          group.order = group.order * 10 + 5;
-
-          return group;
-        });
-    }
   },
-  mounted() {
-    API.getCategories()
+  created() {
+    api.getCategories()
       .then(categories => {
         categories.forEach((category, index) => {
           const color = index < colors.length ? colors[index] : colors[index % colors.length];
@@ -213,11 +145,12 @@ export default {
 
         this.categories = categories;
 
-        API.getElements()
+        api.getElements()
           .then(elements => {
-            this.elements = elements;
+            elementSorter.from(elements, categories);
 
-            this.sortByCategory();
+            this.elements = elements;
+            this.onSort('category', 'asc');
           });
       });
   },

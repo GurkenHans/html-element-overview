@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API_URL = 'https://api.elements.borger.io/';
 
-export default class APIService {
+export default class Api {
 
     constructor() {
     }
