@@ -1,6 +1,6 @@
 module.exports = {
     corsOptions: {
-        origin: 'http://elements.borger.io',
+        origin: 'https://elements.borger.io',
         optionsSuccessStatus: 200,
     },
     compatDataOptions: {

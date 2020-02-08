@@ -38,6 +38,15 @@
       </div>
     </div>
 
+    <div class="container">
+      <h1>HTML Element Overview</h1>
+
+      <p>
+        This tool gives you a short overview of all HTML elements sorted by their function in the DOM.
+        You can search, sort and filter all elements or click on a single one to show its details.
+      </p>
+    </div>
+
     <element-overview-element-modal :element="activeElement" @pt-hide="activeElement = {}" />
   </div>
 </template>

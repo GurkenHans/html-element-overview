@@ -10,7 +10,7 @@
       class="category"
       tabindex="0"
     >
-      <div class="color-box" :style="{backgroundColor: getCategoryColor(category)}"></div>
+      <div class="color-box" :style="{ backgroundColor: getCategoryColor(category) }"></div>
 
       <span>{{ category }}</span>
     </div>

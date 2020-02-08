@@ -1,6 +1,6 @@
 <template>
   <div :class="getModalClasses()">
-    <div class="modal">
+    <div class="modal" role="dialog" aria-modal="true">
       <div class="modal-head">
         <h3>{{ element.tag }}-Element</h3>
         

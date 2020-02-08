@@ -1,14 +1,12 @@
 <template>
   <div class="element-overview-element" :style="{ order }">
-    <div
+    <button
       :class="getElementClasses()"
       :style="{ backgroundColor: color, opacity: visibility }"
       @click="emitClick"
-      @keydown="onKeyDown"
-      tabindex="0"
     >
       <span>&lt;{{ element.tag }}&gt;</span>
-    </div>
+    </button>
   </div>
 </template>
 
@@ -42,11 +40,6 @@ export default {
     emitClick() {
       this.$emit('pt-click', this.element);
     },
-    onKeyDown(event) {
-      if(event.keyCode === 13) {
-        this.emitClick();
-      }
-    }
   },
 }
 </script>
@@ -66,6 +59,10 @@ export default {
   font-size: 1rem;
   line-height: 1.4rem;
   cursor: pointer;
+  border: none;
+  width: 100%;
+  font-family: inherit;
+  color: inherit;
   transition: opacity .3s ease, transform .3s ease;
 }
 
