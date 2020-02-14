@@ -16,7 +16,7 @@
       </aside>
 
       <div class="content">
-        <loading-spinner v-if="elements.length === 0" :height="90" title="elements" />
+        <loading-spinner v-if="elements.length === 0" :height="75" title="elements" />
 
         <div v-else class="element-overview-elements">
           <element-overview-element

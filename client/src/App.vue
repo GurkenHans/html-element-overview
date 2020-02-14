@@ -79,11 +79,15 @@ h4,
 h5,
 h6 {
   font-family: 'Manjari', sans-serif;
-  margin: 1.5rem 0 1rem;
+  margin: 1rem 0 .5rem;
 }
 
 h3 {
   font-size: 2rem;
+}
+
+h1 {
+  margin-top: 0;
 }
 
 p {
@@ -103,7 +107,6 @@ nav.title-bar {
   left: 0;
   background: #fff;
   padding: .25rem 0;
-  margin: 0 0 2rem;
   height: 3.5rem;
   box-shadow: 0 0 6px 5px rgba(0, 0, 0, .15);
   z-index: 80;
@@ -148,7 +151,7 @@ nav.title-bar button {
   width: 100%;
   max-width: 1500px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 2rem 1rem;
 }
 
 footer {
