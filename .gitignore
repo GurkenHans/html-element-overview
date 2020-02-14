@@ -2,4 +2,7 @@ node_modules
 package-lock.json
 
 client/dist
+client/public/css/line-awesome.min.css
+client/public/fonts/*
+
 server/compatData.json
