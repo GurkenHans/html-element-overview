@@ -96,8 +96,8 @@ p {
 
 #app {
   position: relative;
-  min-height: calc(100vh - 5.5rem);
-  margin-bottom: 5.5rem;
+  min-height: calc(100vh - 3.5rem);
+  margin-bottom: 3.5rem;
 }
 
 nav.title-bar {
@@ -113,6 +113,8 @@ nav.title-bar {
 }
 
 nav.title-bar .container {
+  padding-top: 0;
+  padding-bottom: 0;
   height: 100%;
   display: flex;
   align-items: center;
@@ -159,7 +161,6 @@ footer {
   top: 100%;
   left: 0;
   right: 0;
-  margin-top: 2rem;
   background: #0D1B1E;
   color: #fff;
   height: 3.5rem;
